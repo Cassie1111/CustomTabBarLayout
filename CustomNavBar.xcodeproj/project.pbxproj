@@ -22,11 +22,6 @@
 		C65859B621831E2B00056C11 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65859B521831E2B00056C11 /* MenuBar.swift */; };
 		C6AA44BA21882C5500433777 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA44B921882C5500433777 /* SubscriptionCell.swift */; };
 		C6DE522A2187041F008ADEBF /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DE52292187041F008ADEBF /* SettingCell.swift */; };
-		C6DE5230218706FB008ADEBF /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DE522B218706FB008ADEBF /* information.png */; };
-		C6DE5231218706FB008ADEBF /* account.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DE522C218706FB008ADEBF /* account.png */; };
-		C6DE5232218706FB008ADEBF /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DE522D218706FB008ADEBF /* lock.png */; };
-		C6DE5233218706FB008ADEBF /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DE522E218706FB008ADEBF /* cancel.png */; };
-		C6DE5234218706FB008ADEBF /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DE522F218706FB008ADEBF /* settings.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,11 +42,6 @@
 		C65859B521831E2B00056C11 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		C6AA44B921882C5500433777 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
 		C6DE52292187041F008ADEBF /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
-		C6DE522B218706FB008ADEBF /* information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = information.png; path = CustomNavBar/Assets.xcassets/information.png; sourceTree = "<group>"; };
-		C6DE522C218706FB008ADEBF /* account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = account.png; path = CustomNavBar/Assets.xcassets/account.png; sourceTree = "<group>"; };
-		C6DE522D218706FB008ADEBF /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lock.png; path = CustomNavBar/Assets.xcassets/lock.png; sourceTree = "<group>"; };
-		C6DE522E218706FB008ADEBF /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cancel.png; path = CustomNavBar/Assets.xcassets/cancel.png; sourceTree = "<group>"; };
-		C6DE522F218706FB008ADEBF /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = CustomNavBar/Assets.xcassets/settings.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,11 +76,6 @@
 			children = (
 				C658599B2182C87400056C11 /* CustomNavBar */,
 				C658599A2182C87400056C11 /* Products */,
-				C6DE522C218706FB008ADEBF /* account.png */,
-				C6DE522E218706FB008ADEBF /* cancel.png */,
-				C6DE522B218706FB008ADEBF /* information.png */,
-				C6DE522D218706FB008ADEBF /* lock.png */,
-				C6DE522F218706FB008ADEBF /* settings.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -207,11 +192,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6DE5234218706FB008ADEBF /* settings.png in Resources */,
-				C6DE5230218706FB008ADEBF /* information.png in Resources */,
-				C6DE5231218706FB008ADEBF /* account.png in Resources */,
-				C6DE5233218706FB008ADEBF /* cancel.png in Resources */,
-				C6DE5232218706FB008ADEBF /* lock.png in Resources */,
 				C65859A72182C87500056C11 /* LaunchScreen.storyboard in Resources */,
 				C65859A42182C87500056C11 /* Assets.xcassets in Resources */,
 				C65859A22182C87400056C11 /* Main.storyboard in Resources */,
