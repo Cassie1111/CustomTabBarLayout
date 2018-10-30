@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C6038EA4218348000035E511 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6038EA3218348000035E511 /* Video.swift */; };
 		C603DF4A218743E200D2230F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C603DF49218743E200D2230F /* APIService.swift */; };
+		C62FF07A21880356001778FE /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62FF07921880356001778FE /* FeedCell.swift */; };
+		C62FF07C21880EEE001778FE /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62FF07B21880EEE001778FE /* TrendingCell.swift */; };
 		C6374B542184510500AD0D4C /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6374B532184510500AD0D4C /* SettingsLauncher.swift */; };
 		C658599D2182C87400056C11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C658599C2182C87400056C11 /* AppDelegate.swift */; };
 		C658599F2182C87400056C11 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C658599E2182C87400056C11 /* HomeController.swift */; };
@@ -18,6 +20,7 @@
 		C65859B021831BD900056C11 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65859AF21831BD900056C11 /* Extensions.swift */; };
 		C65859B321831C6500056C11 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65859B221831C6500056C11 /* VideoCell.swift */; };
 		C65859B621831E2B00056C11 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65859B521831E2B00056C11 /* MenuBar.swift */; };
+		C6AA44BA21882C5500433777 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA44B921882C5500433777 /* SubscriptionCell.swift */; };
 		C6DE522A2187041F008ADEBF /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DE52292187041F008ADEBF /* SettingCell.swift */; };
 		C6DE5230218706FB008ADEBF /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DE522B218706FB008ADEBF /* information.png */; };
 		C6DE5231218706FB008ADEBF /* account.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DE522C218706FB008ADEBF /* account.png */; };
@@ -29,6 +32,8 @@
 /* Begin PBXFileReference section */
 		C6038EA3218348000035E511 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		C603DF49218743E200D2230F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		C62FF07921880356001778FE /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		C62FF07B21880EEE001778FE /* TrendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
 		C6374B532184510500AD0D4C /* SettingsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
 		C65859992182C87400056C11 /* CustomNavBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomNavBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C658599C2182C87400056C11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +45,7 @@
 		C65859AF21831BD900056C11 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C65859B221831C6500056C11 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		C65859B521831E2B00056C11 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		C6AA44B921882C5500433777 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
 		C6DE52292187041F008ADEBF /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		C6DE522B218706FB008ADEBF /* information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = information.png; path = CustomNavBar/Assets.xcassets/information.png; sourceTree = "<group>"; };
 		C6DE522C218706FB008ADEBF /* account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = account.png; path = CustomNavBar/Assets.xcassets/account.png; sourceTree = "<group>"; };
@@ -127,6 +133,9 @@
 				C65859B221831C6500056C11 /* VideoCell.swift */,
 				C65859B521831E2B00056C11 /* MenuBar.swift */,
 				C6DE52292187041F008ADEBF /* SettingCell.swift */,
+				C62FF07921880356001778FE /* FeedCell.swift */,
+				C62FF07B21880EEE001778FE /* TrendingCell.swift */,
+				C6AA44B921882C5500433777 /* SubscriptionCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -217,6 +226,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C658599F2182C87400056C11 /* HomeController.swift in Sources */,
+				C62FF07A21880356001778FE /* FeedCell.swift in Sources */,
+				C62FF07C21880EEE001778FE /* TrendingCell.swift in Sources */,
 				C6038EA4218348000035E511 /* Video.swift in Sources */,
 				C6DE522A2187041F008ADEBF /* SettingCell.swift in Sources */,
 				C65859B321831C6500056C11 /* VideoCell.swift in Sources */,
@@ -224,6 +235,7 @@
 				C65859B021831BD900056C11 /* Extensions.swift in Sources */,
 				C658599D2182C87400056C11 /* AppDelegate.swift in Sources */,
 				C603DF4A218743E200D2230F /* APIService.swift in Sources */,
+				C6AA44BA21882C5500433777 /* SubscriptionCell.swift in Sources */,
 				C65859B621831E2B00056C11 /* MenuBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

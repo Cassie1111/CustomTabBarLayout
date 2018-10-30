@@ -10,20 +10,12 @@ import UIKit
 
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    var videos: [Video]?
-    
-    func fetchVideos() {
-        APIService.sharedInstance.fetchVideos { (videos: [Video]) in
-            self.videos = videos
-            self.collectionView.reloadData()
-        }
-    }
+    let cellId = "cellId"
+    let trendCellId = "trendCellId"
+    let subscriptionCellId = "subscriptionCellId"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        fetchVideos()
-        
         
         navigationController?.navigationBar.isTranslucent = false
         
@@ -33,15 +25,27 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         navigationItem.titleView = titleLabel
         
+        setupCollectionView()
+        setupNavBarButtons()
+        setupMenuBar()
+    }
+    
+    func setupCollectionView() {
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .horizontal
+            layout.minimumLineSpacing = 0
+        }
+        
+        
         collectionView.backgroundColor = UIColor.white
-        collectionView.register(VideoCell.self, forCellWithReuseIdentifier: "cellId")
+        collectionView.register(FeedCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(TrendingCell.self, forCellWithReuseIdentifier: trendCellId)
+        collectionView.register(SubscriptionCell.self, forCellWithReuseIdentifier: subscriptionCellId)
         
         // let the content totally beneath the menu bar
         collectionView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
-        
-        setupNavBarButtons()
-        setupMenuBar()
+        collectionView.isPagingEnabled = true
     }
     
     private func setupNavBarButtons() {
@@ -68,14 +72,27 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         moreBarButton.customView?.heightAnchor.constraint(equalToConstant: 22).isActive = true
       
         
-        
-        
         navigationItem.rightBarButtonItems = [moreBarButton, searchBarButton]
 //        navigationItem.rightBarButtonItem?.imageInsets = UIEdgeInsets(top: 0.0, left: -15, bottom: 0, right: -10);
     }
     
     @objc func handleSearch() {
-        print("search")
+        scrollToMenuIndex(menuIndex: 2)
+    }
+    
+    func scrollToMenuIndex(menuIndex: Int) {
+        let indexPath = IndexPath(item: menuIndex, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: [], animated: true)
+        
+        setTitleForIndex(index: menuIndex)
+    }
+    
+    let titles: [String] = ["Home", "Trending", "Subscriptions", "Account"]
+    
+    private func setTitleForIndex(index: Int) {
+        if let titleLabel = navigationItem.titleView as? UILabel {
+            titleLabel.text = "  \(titles[index])"
+        }
     }
     
     // lazy var, executed once and only executes when needed
@@ -101,9 +118,9 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         navigationController?.pushViewController(dummySettingViewController, animated: true)
     }
     
-    let menuBar: MenuBar = {
+    lazy var menuBar: MenuBar = {
         let mb = MenuBar()
-        
+        mb.homeController = self
         return mb
     }()
     
@@ -124,38 +141,43 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         menuBar.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1).isActive = true
     }
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        if let count = videos?.count {
-//            return count
-//        }
-//
-//        return 0
+    
+    // page content scroll change the menubar white line
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        menuBar.horizontalBarLeftAnchorConstraint?.constant = scrollView.contentOffset.x / 4
+    }
+    
+    // page content scroll change the selected icon color
+    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let index = Int(targetContentOffset.pointee.x / view.frame.width)
         
-        return videos?.count ?? 0
+        let indexPath = IndexPath(item: index, section: 0)
+        menuBar.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+        
+        setTitleForIndex(index: index)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! VideoCell
-        cell.video = videos?[indexPath.item]
+        let identifier: String
         
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        if indexPath.item == 1 {
+            identifier = trendCellId
+        } else if indexPath.item == 2 {
+            identifier = subscriptionCellId
+        } else {
+            identifier = cellId
+        }
+        
+       return collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        // 16:9 ratio for screen is best
-        
-        let imageViewheight = (view.frame.width - 16 - 16) * 9 / 16
-        let cellHeight = imageViewheight + 16 + 88
-        
-        return CGSize(width: view.frame.width, height: cellHeight)
+        return CGSize(width: view.frame.width, height: view.frame.height - 50)
     }
-
 
 }
 

@@ -23,6 +23,7 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
     let cellId = "cellId"
     let imageNames = ["home", "fire", "folder", "avatar"]
     var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
+    var homeController: HomeController?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -67,14 +68,10 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
         return cell
     }
     
+    // select menu
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let x = indexPath.item
         
-        horizontalBarLeftAnchorConstraint?.constant = CGFloat(x) * frame.width / 4
-        
-        UIView.animate(withDuration: 0.75, delay: 0, options: .curveEaseOut, animations: {
-            self.layoutIfNeeded()
-        }, completion: nil)
+        homeController?.scrollToMenuIndex(menuIndex: indexPath.item)
     }
     
     // set cell size
